@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+
+# Script output
+fda_510k_clearances_2025_2026.csv
