@@ -5,8 +5,10 @@ import requests
 BASE_URL = "https://api.fda.gov/device/510k.json"
 
 # Search filter: decision date between Jan 1, 2025 and Dec 31, 2026
-# You can append extra filters (e.g., +AND+advisory_committee:"CV")
-SEARCH_QUERY = "decision_date:[2025-01-01+TO+2026-12-31]"
+# You can append extra filters (e.g., ' AND advisory_committee:"CV"'). Use plain
+# spaces here, not '+' — requests URL-encodes the params, so a literal '+' would
+# reach the API as %2B instead of a separator.
+SEARCH_QUERY = "decision_date:[2025-01-01 TO 2026-12-31]"
 
 
 def fetch_510k_clearances(query=SEARCH_QUERY, max_records=500, api_key=None):
